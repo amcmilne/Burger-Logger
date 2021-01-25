@@ -4,33 +4,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Burger Logger App</title>
 </head>
 
 <body>
-    <nav class="navbar navbar-light bg-light">
-        <div class="container-fluid">
-            <span class="navbar-text">
-                ,<h1>Burger Time!</h1>
-                ,<p>Make the Burgers. Devour the Burgers!</p>
-                <h2>Make your Burger</h2>
-            </span>
+    <div class="container">
+
+        <nav class="navbar navbar-light bg-light">
+            <div class="container-fluid">
+                <span class="navbar-text">
+                    <h1>Burger Time!</h1>
+                    <p>Make the Burgers. Devour the Burgers!</p>
+                    <h2>Make your Burger</h2>
+                </span>
+            </div>
+        </nav>
+        <form id="create-form" class="row row-cols-lg-auto g-3 align-items-center"></form>
+        <div class="mb-3">
+            <label for="newburger" class="form-label">Order Your Burger!</label>
+            <input type="burger" class="form-control" id="burgername" aria-describedby="burgerchoice">
         </div>
-    </nav>
-    <form class="row row-cols-lg-auto g-3 align-items-center"></form>
-    <div class="col-12">
-        <label class="visually-hidden" for="inlineFormSelectPref">Preference</label>
-        <select class="form-select" id="inlineFormSelectPref">
-            <option selected>Choose...</option>
-            <option value="1">Hamburger</option>
-            <option value="2">Cheeseburger</option>
-            <option value="3">Veggieburger</option>
-        </select>
     </div>
     <div class="col-12">
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button id="addburger" type="submit" class="btn btn-primary">Submit</button>
     </div>
     </form>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="panel panel-default">
+                <div class="panel-heading" id="leftside"><strong>ORDER YOUR BURGER</strong></div>
+                <div class="panel-body">
+
+                    <ul>
+                        {{ #each burgers }}
+                        {{ #unless devoured }}
+                        <span> {{ this.id }} - {{ this.burger_name }}</span>
+                        <button type="button" class="eatburger btn btn-warning" id="eatbutton" data-id="{{this.id}}"
+                            data-newDevoured={{devour}}>
+                        </button>
+                        {{ /unless }}
+                        {{ /each }}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading" id="rightside"><strong>DEVOUR IT! YUM!</strong></div>
+                    <div class="panel-body">
+                        <h3>add content here</h3>
+                    </div>
+                </div>
+            </div>
 </body>
 
 </html>

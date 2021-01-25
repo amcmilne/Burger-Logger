@@ -21,29 +21,37 @@ router.get("/", function (req, res) {
             }
         );
     });
+    var condition = {};
+
     router.put("/api/burger/:id", function (req, res) {
         var condition = "id = " + req.params.id;
 
-        console.log(" conditon", condition);
-        burgers.updateOne({ devoured: req.body.devoured }, condition, function (results) {
-            if (results, changeRows === 0) {
-                return res.status(404).end();
-            } else {
-                res.status(200).end();
-            }
-        });
+        console.log("condition", condition);
+
+        burgers.updateOne(
+            { devoured: req.body.devoured },
+            condition,
+            function (results) {
+                if (results, changeRows === 0) {
+                    return res.status(404).end();
+                } else {
+                    res.status(200).end();
+                }
+            });
     });
-    router.deleteOne(condition, function (results) {
+    router.delete(condition, function (results) {
         var condition = "id = " + req.params.id;
         console.log("condition", condition);
 
-        burgers.deleteOne(condition, function (results) {
-            if ((results, changeRows === 0)) {
-                return res.status(404).end();
-            } else {
-                res.status(200).end;
-            }
-        })
+        burgers.deleteOne(
+            condition,
+            function (results) {
+                if ((results, changeRows === 0)) {
+                    return res.status(404).end();
+                } else {
+                    res.status(200).end;
+                }
+            })
 
     })
 });
