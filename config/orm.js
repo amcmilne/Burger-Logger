@@ -1,6 +1,6 @@
 var connection = require("../config/connection");
 
-function createQmarks(num) {
+function createQuestionMarks(num) {
     var arr = [];
     for (var i = 0; i < num; i++) {
         arr.push("?");
@@ -8,7 +8,7 @@ function createQmarks(num) {
     return arr.toString();
 }
 
-function translateSql(obj) {
+function translateSql(ob) {
     var arr = [];
     for (var key in ob) {
         var value = ob[key];
@@ -41,7 +41,7 @@ function translateSql(obj) {
                 cols.tostring() +
                 ") " +
                 " VALUES (" +
-                createQmarks(vals.length) +
+                createQuestionMarks(vals.length) +
                 ") ";
 
             console.log(dbQuery);
@@ -74,6 +74,7 @@ function translateSql(obj) {
                 table +
                 " WHERE " +
                 condition;
+                
             console.log(dbQuery);
             connection.query(dbQuery, vals, function (err, res) {
                 if (err) {

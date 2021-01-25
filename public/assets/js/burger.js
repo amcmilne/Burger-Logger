@@ -1,5 +1,5 @@
-$(function () {
-    $(".create-form").on("submit", function (event) {
+$(function() {
+    $("#create-form").on("submit", function(event) {
         event.preventDefault();
 
         var newBurger = {
@@ -15,7 +15,7 @@ $(function () {
         });
     });
 
-    $(".eatburger").on("click", function (event) {
+    $("#eatburger").on("click", function(event) {
         event.preventDefault();
 
         var id = $(this).data("id");
@@ -25,13 +25,13 @@ $(function () {
         $.ajax("/api/burgers/" + id, {
             type: "PUT",
             data: devouredState
-        }).then(function () {
+        }).then(function() {
             console.log("Burger devoured!");
             location.reload();
         });
     });
 
-    $(".trashburger").on("click", function() {
+    $("#trashburger").on("click", function(event) {
         event.preventDefault();
 
         var id = $(this).data("id");

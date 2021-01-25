@@ -1,0 +1,127 @@
+<div class="container">
+
+    <nav class="navbar navbar-light sm-dark">
+        <div class="container-fluid">
+            <span class="navbar-text">
+                <h1>Burger Time!</h1>
+                <p>Make the Burgers. Devour the Burgers!</p>
+            </span>
+        </div>
+    </nav>
+
+</div>
+
+<div class="container">
+    <form>
+        <div class="row">
+            <div class="col-sm-10">
+
+                <select id="create-form" class="form-select form-select-sm" aria-label=".form-select-sm example">
+                    <option>Select Your Burger</option>
+                    {{#each burgers}}
+                    <option value="1">Cheeseburger</option>
+                    <option value="2">Hamburger</option>
+                    <option value="3">Veggieburger</option>
+                    <option value="4">Baconburger</option>
+                    <option value="5">Double Cheeseburger</option>
+                    <option value="6">Deluxe Bacon Cheeseburger</option>
+                    <option value="7">Burger in a Bowl</option>
+                    {{/each}}
+                </select>
+            </div>
+            <div class="col-sm-2">
+                <button id="newburger" type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="panel panel-default">
+                <div class="panel-heading" id="leftside">
+                    <h1><strong>Order Here:</strong></h1>
+                    <h2>Pay for order when you are ready to pick up</h2>
+                </div>
+                <div class="panel-body">
+
+                    <ul>
+                        {{#each burgers}}
+                        {{#unless devoured}}
+                        <li><span> {{this.id}} - {{this.burger_name}}</span>
+                        <button data-newDevoured="{{devour}}" class="btn btn-warning" id="eatburger" data-id="{{this.id}}"><i class="fas fa-shopping-cart"></i>
+                        </button>
+                        {{/unless}}
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="panel panel-default">
+                <div class="panel-heading" id="rightside">
+                    <h1><strong>Enjoy!</strong></h1>
+                    <h2>Remove Order upon receipt</h2>
+                    </div>
+                <div class="panel-body">
+                    <ul>
+                        {{#each burgers}}
+                        {{#if devoured}}
+                        <span> {{this.id}} - {{this.burger_name}}</span>
+                        <button data-newDevoured="{{devour}}" class="btn btn-warning" id="trashburger" data-id="{{this.id}}"><i class="fas fa-trash-alt"></i>
+                        </button>
+                        {{/if}}
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+
+    $("#create-form").on("submit", function(event) {
+        event.preventDefault();
+
+        var newBurger = {
+            burger_name: $("#newburger").val().trim(), devoured: 0
+        };
+
+        $.ajax("/api/burgers", {
+            type: "POST",
+            data: newBurger
+        }).then(function () {
+            console.log("added new burger");
+            location.reload();
+        });
+    });
+
+    $("#eatburger").on("click", function(event) {
+        event.preventDefault();
+
+        var id = $(this).data("id");
+        var devouredState = {
+            devoured: 1
+        };
+        $.ajax("/api/burgers/" + id, {
+            type: "PUT",
+            data: devouredState
+        }).then(function() {
+            console.log("Burger devoured!");
+            location.reload();
+        });
+    });
+
+    $("#trashburger").on("click", function(event) {
+        event.preventDefault();
+
+        var id = $(this).data("id");
+
+        $.ajax({
+            type: "DELETE",
+            url: "/api/burgers/" + id
+        }).then(location.reload());
+    });
+});
+</script>

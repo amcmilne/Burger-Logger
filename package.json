@@ -3,6 +3,15 @@
   "version": "1.0.0",
   "description": "In this assignment, I created a burger logger using MySQL, Node, Express, Handlebars and a homemade ORM.",
   "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.2.0",
+    "handlebars": "^4.7.6",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.7"
+  },
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
@@ -18,11 +27,5 @@
   "bugs": {
     "url": "https://github.com/amcmilne/Burger-Logger/issues"
   },
-  "homepage": "https://github.com/amcmilne/Burger-Logger#readme",
-  "dependencies": {
-    "body-parser": "^1.19.0",
-    "express": "^4.17.1",
-    "express-handlebars": "^5.2.0",
-    "mysql": "^2.18.1"
-  }
+  "homepage": "https://github.com/amcmilne/Burger-Logger#readme"
 }
