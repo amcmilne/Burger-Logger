@@ -21,6 +21,7 @@ function translateSql(ob) {
     }
     return arr.toString();
 }
+var vals =[];
 
     var orm = {
         selectAll: function (table, cb) {
@@ -38,7 +39,7 @@ function translateSql(ob) {
                 "INSERT INTO " +
                 table +
                 " (" +
-                cols.tostring() +
+                cols.toString() +
                 ") " +
                 " VALUES (" +
                 createQuestionMarks(vals.length) +
