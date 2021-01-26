@@ -1,0 +1,37 @@
+
+.navbar {   
+    background-image: url("../img/burgers.png");
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: 500px;
+    font-size: 65px;
+    font-family: 'Bungee Shade', cursive;
+}
+.container {
+    border-color: darkslategray;
+}
+
+h1 {
+    font-size: 90px;
+    font-family: 'Bungee Shade', cursive;
+}
+.create-form {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.panel-heading {
+    font-family: 'Montserrat', sans-serif;
+}
+.col-sm-6 {
+    border-style: solid;
+    background-color:lightgrey;
+}
+li {
+    padding: 5px;
+    margin: 10px;
+ 
+}
+.row {
+padding: 35px;
+margin: 15px;
+}
