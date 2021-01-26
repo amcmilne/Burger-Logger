@@ -3,35 +3,69 @@
     background-image: url("../img/burgers.png");
     background-repeat: no-repeat;
     background-position: right;
-    background-size: 500px;
-    font-size: 65px;
+    background-size: 600px;
+   }
+.navbar-text {
+    font-size: 75px;
+}
+#subtitle {
+    font-size: 50px;
     font-family: 'Bungee Shade', cursive;
 }
-.container {
-    border-color: darkslategray;
+#newburger {
+    font-size: 30px;
+    font-family: 'Montserrat', sans-serif;
+    background-color: lightgrey;
+    border-style: none;
 }
 
-h1 {
-    font-size: 90px;
+#maintitle {
+    font-size: 100px;
     font-family: 'Bungee Shade', cursive;
 }
+#burgersearch {
+    position: sticky;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 35px;
+ }
 .create-form {
     font-family: 'Montserrat', sans-serif;
-}
-
-.panel-heading {
-    font-family: 'Montserrat', sans-serif;
-}
-.col-sm-6 {
-    border-style: solid;
-    background-color:lightgrey;
 }
 li {
     padding: 5px;
     margin: 10px;
  
 }
-.row {
-padding: 35px;
-margin: 15px;
+ul {
+    text-align: center;
+}
+.row {  
+    padding: 35px;
+    margin: 15px;
+}
+
+
+#ordertitle {
+    font-family: 'Bungee Shade', cursive;
+    font-size: 40px;
+    text-align: center;
+}
+#confirmtitle {
+    font-family: 'Bungee Shade', cursive;
+    font-size: 40px;
+    text-align: center;
+}
+#payhere {
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+}
+#pickup {
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+}
+#ordersplaced {
+    background-color: steelblue;
+}
+#ordersready {
+    background-color: seagreen;
 }

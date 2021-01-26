@@ -1,85 +1,100 @@
-<div class="container-fluid">
+<div id="header" class="container-fluid">
 
     <nav class="navbar navbar-dark bg-dark">
         <div class="container">
-            <span class="navbar-text">
-                <h1><strong>Burger Time!</strong></h1>
-                <p>Grab a burger on the go.</p>
-            </span>
+            <div class="row">
+                <span class="navbar-text">
+                    <h1 id="maintitle">Burger Town</h1>
+                    <p id="subtitle">Grab-n-go burger.</p>
+                </span>
+            </div>
+            <div class="row">
+                <panel id="burgersearch">
+                    <form class="create-form">
+                        <div class="form group">
+                            <label for="newburger"></label>
+                            <select data-placeholder="" name="burger" id="newburger" class="form-select form-select-sm"
+                                aria-label="form-select-sm example">
+                                <option id="burgeroptions">Select Your Burger</option>
+                                <option value="Cheeseburger">Cheeseburger</option>
+                                <option value="Hamburger">Hamburger</option>
+                                <option value="Veggieburger">Veggieburger</option>
+                                <option value="Baconburger">Baconburger</option>
+                                <option value="Double Cheeseburger">Double Cheeseburger</option>
+                                <option value="Deluxe Bacon Cheeseburger">Deluxe Bacon Cheeseburger</option>
+                                <option value="Burger in a Bowl">Burger in a Bowl</option>
+                            </select>
 
-            <panel>
-                <form class="create-form">
-                    <div class="form group">
-                        <label for="newburger"></label>
-                        <select data-placeholder="" name="burger" id="newburger" class="form-select form-select-sm"
-                            aria-label="form-select-sm example">
-                            <option>Select Your Burger</option>
-                            <option value="cheeseburger">Cheeseburger</option>
-                            <option value="hamburger">Hamburger</option>
-                            <option value="veggieburger">Veggieburger</option>
-                            <option value="baconburger">Baconburger</option>
-                            <option value="double cheeseburger">Double Cheeseburger</option>
-                            <option value="deluxe bacon cheeseburger">Deluxe Bacon Cheeseburger</option>
-                            <option value="burger in a bowl">Burger in a Bowl</option>
-                        </select>
-
-                        <button type="submit" id="addburger" type="submit" class="btn btn-secondary">Yum! <i class="fas fa-hamburger"></i></button>
-                    </div>
-                </form>
-            </panel>
+                            <button type="submit" id="addburger" type="submit" class="btn btn-secondary">Good
+                                Choice!</button>
+                        </div>
+                    </form>
+                </panel>
+            </div>
         </div>
     </nav>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-sm-6">
-                <div class="panel panel-default">
-                    <div class="panel-heading" id="ordersplaced">
-                        <h2><strong>Confirm your Burger Choice</strong></h2>
-                        <h4>Then Pay Here:</h4>
-                    </div>
-                    <div class="panel-body">
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="panel panel-default">
+                <div class="panel-heading" id="ordersplaced">
+                    <h2 id="ordertitle"><strong>Confirm your Burger Choice</i></strong></h2>
+                    <br>
+                    <h4 id="payhere">Then Pay Here:</h4>
+                </div>
+                <div class="panel-body">
 
-                        <ul>
-                            {{#each burger}}
-                            {{#unless devoured}}
+                    <ul>
+                        {{#each burger}}
+                        {{#unless devoured}}
 
-                            <li><span> {{this.id}} - {{this.burger_name}}</span>
-                                <button type="button" data-newDevoured="{{devour}}" class="payburger btn btn-success"
-                                    id="payburger" data-id="{{this.id}}">Pay <i class="fas fa-shopping-cart"></i>
-                                </button>
-                            </li>
+                        <li>
+                            <span> {{this.id}} - {{this.burger_name}}</span>
+                        </li>
+                        <li>
+                            <button type="button" data-newDevoured="{{devour}}" class="payburger btn btn-success"
+                                id="payburger" data-id="{{this.id}}">Pay <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </li>
+                        <br>
 
-                            {{/unless}}
-                            {{/each}}
-                        </ul>
-                    </div>
+                        {{/unless}}
+                        {{/each}}
+                    </ul>
                 </div>
             </div>
-            <div class="col-sm-6">
-                <div class="panel panel-default">
-                    <div class="panel-heading" id="ordersready">
-                        <h2><strong>Enjoy!</strong></h2>
-                        <h4>Order removed after your confirm pick-up!</h4>
-                    </div>
-                    <div class="panel-body">
-                        <ul>
-                            {{#each burger}}
-                            {{#if devoured}}
+        </div>
+        <div class="col-sm-6">
+            <div class="panel panel-default">
+                <div class="panel-heading" id="ordersready">
+                    <h2 id="confirmtitle"><strong>Enjoy!</strong></h2>
+                    <br>
+                    <h4 id="pickup">Order removed after your confirm pick-up!</h4>
+                </div>
+                <div class="panel-body">
+                    <ul>
+                        {{#each burger}}
+                        {{#if devoured}}
 
-                            <li><span> {{this.id}} - {{this.burger_name}}</span>
-                                <button type="button" data-newDevoured="{{devour}}" class="finishburger btn btn-success"
-                                    id="finishburger" data-id="{{this.id}}">Goodbye! <i class="fas fa-trash-alt"></i>
-                                </button>
-                            </li>
+                        <li>
+                            <span> {{this.id}} - {{this.burger_name}}</span>
+                        </li>
+                        <li>
+                            <button type="button" data-newDevoured="{{devour}}" class="finishburger btn btn-success"
+                                id="finishburger" data-id="{{this.id}}">Goodbye! <i class="far fa-hand-peace"></i>
+                            </button>
+                        </li>
+                        <br>
 
-                            {{/if}}
-                            {{/each}}
-                        </ul>
-                    </div>
+                        {{/if}}
+                        {{/each}}
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
+</div>
 </div>
 
 {{!-- javascript --}}
