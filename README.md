@@ -9,7 +9,7 @@ In this assignment, I created a burger logger using MySQL, Node, Express, Handle
 
 * When the user confirms they picked up their burger they will click the `Goodbye` button, and the burger will be removed.
 
-* Your app will store every burger in a database, and then when the user confirms pick up, the burger will be removed.
+
 
 ## Find my work at: 
 * https://ancient-river-62644.herokuapp.com/
